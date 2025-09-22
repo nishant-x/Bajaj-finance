@@ -15,10 +15,10 @@ import java.util.Collections;
 @SpringBootApplication
 public class Main implements CommandLineRunner {
 
-    // You need to fill in your personal information here
-    private static final String YOUR_NAME = "Nishant Jhade";
-    private static final String YOUR_REG_NO = "0536CS221032";
-    private static final String YOUR_EMAIL = "jhadenishant@gmail.com";
+
+    private static final String NAME = "Nishant Jhade";
+    private static final String REG_NO = "0536CS221032";
+    private static final String EMAIL = "jhadenishant@gmail.com";
 
     // URLs for the API endpoints
     private static final String GENERATE_WEBHOOK_URL = "https://bfhldevapigw.healthrx.co.in/hiring/generateWebhook/JAVA";
@@ -40,7 +40,7 @@ public class Main implements CommandLineRunner {
 
         try {
             // Create the request body for the first API call
-            GenerateWebhookRequest requestBody = new GenerateWebhookRequest(YOUR_NAME, YOUR_REG_NO, YOUR_EMAIL);
+            GenerateWebhookRequest requestBody = new GenerateWebhookRequest(NAME, REG_NO, EMAIL);
             
             // Set up headers
             HttpHeaders headers = new HttpHeaders();
@@ -90,7 +90,7 @@ public class Main implements CommandLineRunner {
             // Create the HTTP entity
             HttpEntity<SubmitSolutionRequest> entity = new HttpEntity<>(requestBody, headers);
 
-            // --- Debugging logs added here ---
+            // Debugging logs
             System.out.println("Submitting request to: " + SUBMIT_SOLUTION_URL);
             System.out.println("Headers: " + headers);
             System.out.println("Body: " + requestBody.getFinalQuery());
